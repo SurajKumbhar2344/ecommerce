@@ -15,14 +15,15 @@ public class Shopping {
 	static int CUID;
 	public static void main(String args[]) throws IOException
 	{
-		DatabaseConnection.makeDatabase();
+		DatabaseConnection.makeDatabase();  //Here we call makeDatabase Method present DatabaseConnection
 		
-		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));  // we use Buffered reader (Not Scanner class)
+		                                                                           //becouse it is faster than scanner and no need to close resource(no leak)
 		System.out.println("WELCOME TO ECOMMERCE SHOPPING \n");
 		
 		int ch;
 		do
-		{
+		{									//This is main page of project
 			System.out.println("*************************WELCOME TO VELOMART************************\n");
 			System.out.println("                    1 - ADMIN REGISTRATION");
 			System.out.println("                    2 - CUSTOMER REGISTRATION");
@@ -30,11 +31,11 @@ public class Shopping {
 			System.out.println("                    4 - EXIT");
 			System.out.println("\n********************************************************************\n");
 			
-			System.out.print("         Enter choice : ");
+			System.out.print("         Enter choice : ");  //u have to enter choice
 			
-			ch=Integer.parseInt(br.readLine());
+			ch=Integer.parseInt(br.readLine());  //choice stored in ch
 			
-			if(ch==1)
+			if(ch==1)			//conditions
 				registerAdmin();
 			else if(ch==2)
 				registerCustomer();
@@ -48,7 +49,7 @@ public class Shopping {
 		
 	}
 	
-	static void loginSystem()throws IOException
+	static void loginSystem()throws IOException         // method for login window
 	{
 		String chc;
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
@@ -56,7 +57,7 @@ public class Shopping {
 		System.out.println("\n             WELCOME TO LOGIN PAGE\n");
 		System.out.println("*******************************************************\n");
 		
-		//login info fetch data
+									//login info fetch data
 		ArrayList<Integer> id=new ArrayList<Integer>();
 		ArrayList<String> pass=new ArrayList<String>();
 		ArrayList<Character> type=new ArrayList<Character>();
@@ -66,10 +67,10 @@ public class Shopping {
 			int uid;
 			String passw;  
 			char tp=' ';
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.jdbc.Driver");			// creating Connection to database
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce?autoReconnect=true&useSSL=false","root",DatabaseConnection.root);
 			PreparedStatement ps=con.prepareStatement("select * from logininfo",ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-			ResultSet rs=ps.executeQuery();
+			ResultSet rs=ps.executeQuery();                // Used result set
 			
 			while(rs.next())
 			{
@@ -80,7 +81,7 @@ public class Shopping {
 			
 			
 			
-			int flag1=0,flag2=0;
+			int flag1=0,flag2=0;			// checking login info
 			int f1,f2;
 			do
 			{
@@ -111,27 +112,27 @@ public class Shopping {
 				tp=type.get(id.indexOf(uid));
 			}
 			
-			if(tp=='A')
+			if(tp=='A')           // Here A means Admin
 			{
 				Admin ob=new Admin(uid,passw);
-				ob.AdminPage();
-			}
-			else if(tp== 'C')
+				ob.AdminPage();          //calling AdminpPage()
+			} 
+			else if(tp== 'C')     // Here C means Customer
 			{
 				Customer obb=new Customer(uid,passw);
-				obb.CustomerPage();
+				obb.CustomerPage();              //calling CustomerPage()
 			}
 		
 		}
 		catch(Exception e)
 		{
 			
-			e.printStackTrace();
+			e.printStackTrace();      //Exception
 		}
 		
 	}
 	
-	static void registerAdmin()throws IOException
+	static void registerAdmin()throws IOException     //Registering Admin
 	{
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 		String pass,name,num,addr,email;
@@ -158,7 +159,7 @@ public class Shopping {
 		//inserting data 
 		try
 		{
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.jdbc.Driver");     // creating database and throwing sql query
 		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce?autoReconnect=true&useSSL=false","root",DatabaseConnection.root);
 		PreparedStatement ps=con.prepareStatement("insert into adminInfo(AdminID,Name,Age,Email,Address,ContactNumber) values(?,?,?,?,?,?)");
 		PreparedStatement ps1=con.prepareStatement("insert into loginInfo(userID,password,userType) values(?,?,?)");
@@ -186,7 +187,7 @@ public class Shopping {
 	}
 	
 	
-	static void registerCustomer()throws IOException
+	static void registerCustomer()throws IOException     //Registering Customer
 	{
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 		String pass,name,num,addr,email;
@@ -213,7 +214,7 @@ public class Shopping {
 		//inserting data 
 		try
 		{
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.jdbc.Driver");               //database Connection  and inserting data
 		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce?autoReconnect=true&useSSL=false","root",DatabaseConnection.root);
 		PreparedStatement ps=con.prepareStatement("insert into custInfo(CustID,Name,Age,Email,Address,ContactNumber) values(?,?,?,?,?,?)",ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 		PreparedStatement ps1=con.prepareStatement("insert into loginInfo(userID,password,userType) values(?,?,?)",ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -239,11 +240,11 @@ public class Shopping {
 		}
 		
 	}
-	static void setCUID()
+	static void setCUID()      //we used setCUID() to set customer user id and it will increment by 1 by each call
 	{
 		try
 		{
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.jdbc.Driver");    // database
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce?autoReconnect=true&useSSL=false","root",DatabaseConnection.root);
 			PreparedStatement ps=con.prepareStatement("select CustID from custinfo");
 			ResultSet rs=ps.executeQuery();
@@ -259,15 +260,15 @@ public class Shopping {
 			//System.out.println(e);
 		}
 	}
-	static void setUID()
+	static void setUID()  // it will set user id ,and incremented by 1
 	{
 		try
 		{
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.jdbc.Driver");   // database
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce?autoReconnect=true&useSSL=false","root",DatabaseConnection.root);
 			PreparedStatement ps=con.prepareStatement("select AdminID from admininfo");
 			ResultSet rs=ps.executeQuery();
-			int x=1000;
+			int x=1000;           //starting from 1001
 			while(rs.next()) {
 				x=Integer.parseInt(rs.getString("AdminID"));
 			}

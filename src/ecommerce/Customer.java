@@ -16,7 +16,7 @@ public class Customer extends Shopping{
 	private int cartFlag=0;
 	private int billPaidFlag=0;
 	private int checkFlag=-1;
-	
+	///Creating ArrayList
 	private ArrayList<Integer> pid=new ArrayList<Integer>();
 	private ArrayList<String> name=new ArrayList<String>();
 	private ArrayList<String> type=new ArrayList<String>();
@@ -24,7 +24,7 @@ public class Customer extends Shopping{
 	private ArrayList<Float> price=new ArrayList<Float>();
 	
 	private int products_Check;
-	
+	//Setting method
 	Customer(int custID,String passw)
 	{
 		customerID=custID;
@@ -43,15 +43,15 @@ public class Customer extends Shopping{
 		do
 		{
 			System.out.println("*************************WELCOMR TO VELOMART**********************************\n");
-			System.out.println("			1 - VIEW PRODUCTS LIST");//completed
-			System.out.println("			2 - SEARCH A PRODUCT NAMEWISE");//completed
-			System.out.println("			3 - SEARCH PRODUCTS TYPEWISE");//completed
-			System.out.println("			4 - ADD PRODUCT TO CART");//completed
-			System.out.println("			5 - REMOVE PRODUCT FROM CART");//completed
-			System.out.println("			6 - VIEW CART");//completed
+			System.out.println("			1 - VIEW PRODUCTS LIST");
+			System.out.println("			2 - SEARCH A PRODUCT NAMEWISE");
+			System.out.println("			3 - SEARCH PRODUCTS TYPEWISE");
+			System.out.println("			4 - ADD PRODUCT TO CART");
+			System.out.println("			5 - REMOVE PRODUCT FROM CART");
+			System.out.println("			6 - VIEW CART");
 			System.out.println("			7 - PROCEED TO PAYMENT");
-			System.out.println("			8 - EDIT PROFILE");//completed
-			System.out.println("			9 - LOGOUT FROM SYSTEM");//completed
+			System.out.println("			8 - EDIT PROFILE");
+			System.out.println("			9 - LOGOUT FROM SYSTEM");
 			System.out.println("*****************************************************************************\n");
 			
 			System.out.print("Enter choice : ");
@@ -94,7 +94,7 @@ public class Customer extends Shopping{
 				System.out.println("Wrong choice");
 		}while(ch!=9);
 	}
-	private int checkExit()throws IOException
+	private int checkExit()throws IOException     // Checking --
 	{
 		if(cartFlag==1)
 		{
@@ -123,7 +123,7 @@ public class Customer extends Shopping{
 		return 9;
 			
 	}
-	private void proceedPayment(Cart cart1)throws IOException
+	private void proceedPayment(Cart cart1)throws IOException  // payment proceed
 	{
 		if(cartFlag==1)
 		{
@@ -165,7 +165,7 @@ public class Customer extends Shopping{
 			System.out.println("CART IS EMPTY! ");
 	}
 	//the  below functions are of private use only , not use customer class
-	private void updateArrayList()throws IOException
+	private void updateArrayList()throws IOException       // to update List
 	{
 		pid.clear();
 		name.clear();

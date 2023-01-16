@@ -43,7 +43,7 @@ public class Bill {
 		
 		
 		//===
-		try
+		/*try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce?autoReconnect=true&useSSL=false","root",DatabaseConnection.root);
@@ -60,12 +60,12 @@ public class Bill {
 		{
 			System.out.println(e);
 		}
-		//===
+		//===*/
 	}
 	private static int setBillId()throws IOException
 	{
 		int x=2999;
-		try
+		try               //Storing to database bill
 		{
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce?autoReconnect=true&useSSL=false","root",DatabaseConnection.root);
@@ -83,7 +83,7 @@ public class Bill {
 		}
 		return x+1;
 	}
-	public void displayBill()throws IOException
+	public void displayBill()throws IOException       // Displaying the Bil
 	{
 		generateBill();
 		int x;
@@ -103,7 +103,7 @@ public class Bill {
 		System.out.printf("TOTAL AMOUNT PAYABLE = Rs. "+total_amount+"\n");
 		System.out.println("************************************************************************************************\n");
 	}
-	public void addToDatabase()throws IOException
+	public void addToDatabase()throws IOException      ///Adding 
 	{
 		int x;
 		try

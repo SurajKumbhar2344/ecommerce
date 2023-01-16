@@ -12,7 +12,7 @@ public class DatabaseConnection {
 	public static void makeDatabase()throws IOException
 	{
 		
-		
+		/// Database Will be Created Automatically Using following queries
 		int x;
 		try
 		{
@@ -23,7 +23,7 @@ public class DatabaseConnection {
 			System.out.println("     LOADING ......");
 			do
 			{
-				System.out.print("ENTER PASSWORD TO PROCEED = ");
+				System.out.print("ENTER PASSWORD TO PROCEED = "); ///root
 				root=br.readLine();
 			    try
 			    {

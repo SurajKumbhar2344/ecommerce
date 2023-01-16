@@ -21,11 +21,11 @@ public class Products {
 		do
 		{
 			System.out.println("******************************PRODUCT*********************************\n");
-			System.out.println("				1 - ADD PRODUCTS");//completed
-			System.out.println("				2 - REMOVE PRODUCTS");//completed
-			System.out.println("				3 - ALTER PRODUCT INFO");//completed
-			System.out.println("				4 - VIEW ALL PRODUCTS");//completed
-			System.out.println("				5 - SEARCH A PARTICULAR PRODUCT");//completed
+			System.out.println("				1 - ADD PRODUCTS");
+			System.out.println("				2 - REMOVE PRODUCTS");
+			System.out.println("				3 - ALTER PRODUCT INFO");
+			System.out.println("				4 - VIEW ALL PRODUCTS");
+			System.out.println("				5 - SEARCH A PARTICULAR PRODUCT");
 			System.out.println("				6 - EXIT PAGE");
 			System.out.println("************************************************************************\n");
 			System.out.print("Enter choice : ");
@@ -160,7 +160,7 @@ public class Products {
 			System.out.println(e);
 		}
 	}
-	private void searchProduct()throws IOException
+	private void searchProduct()throws IOException   // Search product
 	{
 		int flag=0;
 		int x=0;
@@ -219,7 +219,7 @@ public class Products {
 		System.out.println();
 	
 	}
-	private void removeProducts()throws IOException
+	private void removeProducts()throws IOException   // remove product
 	{
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 		int x=0;
@@ -250,7 +250,7 @@ public class Products {
 			System.out.println(e);
 		}
 	}
-	private void addProducts()throws IOException
+	private void addProducts()throws IOException    ///Adding Product
 	{
 		int res;
 		String ch;
@@ -290,7 +290,7 @@ public class Products {
 			System.out.println(e);
 		}
 	}
-	private void viewProducts()
+	private void viewProducts()   //View Products (select *)
 	{
 		int x=0;
 		try
@@ -333,7 +333,7 @@ public class Products {
 			System.out.println(e);
 		}
 	}
-	private static int setPid()
+	private static int setPid()   // Generating product id to fetch in sorted manner
 	{
 		int y=999;
 		try

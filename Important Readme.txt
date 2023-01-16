@@ -1,43 +1,32 @@
 
-e commerce project 
+e-commerce project 
 
 Developed by 
-1) Suraj balasaheb Kumbhar
+1)Suraj balasaheb Kumbhar
 2)Ankita gavade
 3)Akshay Dhekle
 
 
+Process
+
+1) Run the Shopping.java
+
+Note :- Database name ecommerce generate automatically with tables
+		1)custinfo
+		2)products
+		3)logininfo
+		4)admininfo
+		5)bills
 sql queries
 SELECT * FROM custinfo
 SELECT * FROM products
 SELECT * FROM bills
 select * from logininfo
-
 select * from admininfo
-select * from products
 
 
 
-select * from admininfo;
-select * from bills;
-select * from custinfo;
-select * from logininfo;
-select * from products;
-
- 
-
-
-
-
-INSERT INTO admininfo values ();
-INSERT INTO logininfo values ();
-INSERT INTO bills values();
-INSERT INTO custinfo values();
-select * from products;
-
-INSERT INTO ecommerce.products (Name,Type,Quantity,Price)values('Apple','25','150000');
-UPDATE custinfo SET name=? where customerID=1;
-
+Admin can insert products but for quick inserting run follwing query for products
 
 
 INSERT INTO `ecommerce`.`products` (`productID`, `Name`, `Type`, `Quantity`, `Price`) VALUES ('1006', 'OnePlus', 'Mobile', '50', '50000');

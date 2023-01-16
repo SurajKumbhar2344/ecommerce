@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class Cart {
-	private ArrayList<Integer> pid=new ArrayList<Integer>();
+	private ArrayList<Integer> pid=new ArrayList<Integer>();///Creating ArrayList
 	private ArrayList<String> pname=new ArrayList<String>();
 	private ArrayList<String> ptype=new ArrayList<String>();
 	private ArrayList<Integer> qpur=new ArrayList<Integer>();
@@ -39,7 +39,7 @@ public class Cart {
 		
 		
 	}
-	public void viewCart()throws IOException
+	public void viewCart()throws IOException  // View cart
 	{
 		int x=pid.size();
 		if(x!=0)
@@ -63,7 +63,7 @@ public class Cart {
 		//=====================================================================================================
 	
 	}
-	public void removeFromCart(int p_id)throws IOException
+	public void removeFromCart(int p_id)throws IOException      // Remove product from cart
 	{
 		int res;
 		int x=-1;
@@ -105,7 +105,7 @@ public class Cart {
 		}
 		
 	}
-	public void cancelCart()throws IOException
+	public void cancelCart()throws IOException       // cancel cart
 	{
 		try
 		{

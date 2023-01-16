@@ -16,7 +16,7 @@ public class Admin extends Shopping {
 		adminID=x;
 		password=y;
 	}
-	public void AdminPage()throws IOException
+	public void AdminPage()throws IOException               // Admin Section
 	{
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("WELCOME TO ADMIN SECTION\n");
@@ -25,11 +25,11 @@ public class Admin extends Shopping {
 		do
 		{
 			System.out.println("**********************WELCOME TO ADMIN PAGE******************************\n");
-			System.out.println("			1 - MANAGE PRODUCTS");//completed
-			System.out.println("			2 - ADD CUSTOMERS");//completed
-			System.out.println("			3 - REMOVE CUSTOMERS");//completed
-			System.out.println("			4 - EDIT PROFILE");//completed
-			System.out.println("			5 - VIEW REGISTERED CUSTOMERS");//completed
+			System.out.println("			1 - MANAGE PRODUCTS");
+			System.out.println("			2 - ADD CUSTOMERS");
+			System.out.println("			3 - REMOVE CUSTOMERS");
+			System.out.println("			4 - EDIT PROFILE");
+			System.out.println("			5 - VIEW REGISTERED CUSTOMERS");
 			System.out.println("			6 - VIEW CUSTOMERS SHOPPING LIST");
 			System.out.println("			7 - LOGOUT FROM SYSTEM");
 			System.out.println("**********************************************************\n");
@@ -72,7 +72,7 @@ public class Admin extends Shopping {
 	}
 	
 	
-	private static void editProfile(int adminID)throws IOException
+	private static void editProfile(int adminID)throws IOException     // For Editing Profile(Update)
 	{
 		try
 		{
@@ -214,7 +214,7 @@ public class Admin extends Shopping {
 	}
 	
 	
-	private static void viewCustomers()throws IOException
+	private static void viewCustomers()throws IOException   // View Registered Customers(Select *)
 	{
 		int cid,age;
 		String name,email,addr,contact;
